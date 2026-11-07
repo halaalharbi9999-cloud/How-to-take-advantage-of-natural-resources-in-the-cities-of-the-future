@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مدن المستقبل | موارد طبيعية وتقنيات تصنع حياة الغد</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+ --green:#174b3b;
+ --deep:#103629;
+ --sage:#91a995;
+ --mint:#dce9dc;
+ --cream:#f7f3e9;
+ --gold:#bd9a60;
+ --blue:#477c83;
+ --ink:#263b33;
+}
+
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ background:#e6e9df;
+ color:var(--ink);
+ font-family:'Alexandria',sans-serif;
+}
+
+button{font-family:inherit;cursor:pointer}
+
+.header{
+ text-align:center;
+ padding:24px 12px 8px;
+}
+
+.header small{
+ color:var(--green);
+ letter-spacing:2px;
+}
+
+.header h1{
+ color:var(--green);
+ font-size:clamp(20px,4vw,30px);
+ margin:9px;
+}
+
+.book{
+ width:min(920px,94%);
+ margin:20px auto;
+ background:var(--cream);
+ border-radius:18px;
+ overflow:hidden;
+ box-shadow:0 20px 55px #263b3320;
+}
+
+.page{
+ display:none;
+ min-height:680px;
+ padding:clamp(22px,5vw,48px);
+ animation:appear .4s ease;
+}
+
+.page.active{display:block}
+
+@keyframes appear{
+ from{opacity:0;transform:translateY(9px)}
+ to{opacity:1;transform:translateY(0)}
+}
+
+.cover{
+ background:
+ radial-gradient(circle at 15% 15%,#6e997b55,transparent 35%),
+ linear-gradient(145deg,var(--deep),#27604a);
+ color:white;
+ text-align:center;
+ padding:35px 22px;
+}
+
+.cover .eyebrow{
+ color:#e3c48d;
+ letter-spacing:3px;
+ font-size:12px;
+}
+
+.cover h2{
+ font-size:clamp(29px,6vw,48px);
+ line-height:1.65;
+ margin:22px 0 8px;
+}
+
+.cover h2 span{color:#d6bc86}
+
+.cover p{
+ color:#e1eadd;
+ line-height:2;
+}
+
+.cover-art{
+ width:min(620px,100%);
+ margin:18px auto;
+}
+
+.cover-art svg{width:100%;height:auto}
+
+.gold-line{
+ width:75px;
+ height:3px;
+ background:var(--gold);
+ margin:18px auto;
+}
+
+.page-tag{
+ color:var(--gold);
+ font-size:12px;
+ font-weight:700;
+ letter-spacing:2px;
+}
+
+.section-title{
+ color:var(--green);
+ font-size:clamp(23px,4vw,32px);
+ line-height:1.7;
+ margin:8px 0 14px;
+}
+
+.intro{
+ line-height:2.1;
+ color:#52645a;
+ font-size:13px;
+}
+
+.visual{
+ background:linear-gradient(135deg,#e2ecdf,#f1eee2);
+ border-radius:17px;
+ padding:14px;
+ margin:20px 0;
+ text-align:center;
+}
+
+.visual svg{
+ width:100%;
+ max-height:240px;
+}
+
+.cards{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:13px;
+ margin-top:20px;
+}
+
+.info-card{
+ background:white;
+ border-right:4px solid var(--sage);
+ border-radius:12px;
+ padding:15px;
+ box-shadow:0 4px 15px #263b3309;
+}
+
+.info-card h3{
+ color:var(--green);
+ font-size:14px;
+ margin:0 0 8px;
+}
+
+.info-card p{
+ font-size:12px;
+ line-height:2.1;
+ margin:0;
+ color:#5c6b61;
+}
+
+.full{grid-column:1/-1}
+
+.step{
+ display:flex;
+ gap:12px;
+ align-items:flex-start;
+ margin:13px 0;
+}
+
+.number{
+ min-width:31px;
+ height:31px;
+ display:grid;
+ place-items:center;
+ border-radius:50%;
+ background:var(--green);
+ color:white;
+ font-size:13px;
+}
+
+.step p{
+ margin:0;
+ line-height:2;
+ font-size:12px;
+}
+
+.highlight{
+ background:#e5eddf;
+ border-radius:12px;
+ padding:16px;
+ border-right:4px solid var(--gold);
+ margin-top:18px;
+ line-height:2.1;
+ font-size:12px;
+}
+
+.case{
+ display:grid;
+ grid-template-columns:115px 1fr;
+ gap:15px;
+ align-items:center;
+ margin:18px 0;
+ background:white;
+ border-radius:14px;
+ padding:13px;
+}
+
+.case-art{
+ background:#e7eee5;
+ border-radius:10px;
+ height:110px;
+ display:grid;
+ place-items:center;
+}
+
+.case-art svg{width:100%;height:100%}
+
+.case h3{
+ color:var(--green);
+ margin:0 0 6px;
+ font-size:14px;
+}
+
+.case p{
+ margin:0;
+ font-size:12px;
+ line-height:2;
+ color:#5b685f;
+}
+
+.pill{
+ display:inline-block;
+ background:#e2ebdf;
+ color:var(--green);
+ border-radius:30px;
+ padding:5px 11px;
+ font-size:10px;
+ margin-top:8px;
+}
+
+.quote{
+ text-align:center;
+ color:var(--green);
+ font-size:19px;
+ font-weight:700;
+ line-height:2;
+ padding:24px 8px;
+}
+
+.credits{
+ background:var(--deep);
+ color:white;
+ padding:20px;
+ border-radius:14px;
+ line-height:2.2;
+ font-size:12px;
+ text-align:center;
+ margin-top:22px;
+}
+
+.credits strong{color:#e2c48e}
+
+.footer{
+ text-align:center;
+ border-top:1px solid #d9ded3;
+ margin-top:25px;
+ padding-top:17px;
+ font-size:10px;
+ color:#728076;
+ line-height:2;
+}
+
+.references a{
+ color:var(--blue);
+ text-decoration:none;
+}
+
+.references li{
+ font-size:11px;
+ line-height:2;
+ margin:8px 0;
+}
+
+.controls{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ gap:14px;
+ margin:22px auto 35px;
+ flex-wrap:wrap;
+}
+
+.controls button{
+ border:0;
+ background:var(--green);
+ color:white;
+ padding:12px 22px;
+ border-radius:30px;
+ font-size:12px;
+}
+
+.controls button:disabled{
+ opacity:.35;
+ cursor:not-allowed;
+}
+
+#counter{
+ color:var(--green);
+ font-size:13px;
+ font-weight:700;
+}
+
+.dots{
+ display:flex;
+ justify-content:center;
+ gap:8px;
+ margin:15px;
+}
+
+.dot{
+ width:9px;
+ height:9px;
+ background:#bac8b9;
+ border-radius:50%;
+ cursor:pointer;
+}
+
+.dot.active{
+ width:25px;
+ border-radius:20px;
+ background:var(--green);
+}
+
+@media(max-width:600px){
+ .book{min-height:680px}
+ .page{min-height:680px;padding:22px 17px}
+ .cards{grid-template-columns:1fr}
+ .full{grid-column:auto}
+ .case{grid-template-columns:85px 1fr}
+ .case-art{height:95px}
+}
+
+@media print{
+ body{background:white}
+ .header,.controls,.dots{display:none}
+ .book{width:100%;box-shadow:none;overflow:visible}
+ .page{
+  display:block!important;
+  page-break-after:always;
+  min-height:0;
+  animation:none;
+ }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+ <small>FUTURE • TECHNOLOGY • INNOVATION</small>
+ <h1>رحلة إلى مدن المستقبل</h1>
+</div>
+
+<main class="book">
+
+<!-- الصفحة الأولى: الغلاف -->
+
+<section class="page cover active">
+
+ <div class="eyebrow">THE CITIES OF TOMORROW</div>
+
+ <h2>مدن<br><span>المستقبل</span></h2>
+
+ <div class="gold-line"></div>
+
+ <p>موارد طبيعية وتقنيات تصنع حياة الغد</p>
+
+ <div class="cover-art">
+  <svg viewBox="0 0 600 300">
+   <circle cx="480" cy="58" r="35" fill="#e5c68b"/>
+   <path d="M0 235 Q150 190 290 230 T600 220 V300 H0Z" fill="#456e54"/>
+   <path d="M0 260 Q160 220 310 255 T600 245 V300 H0Z" fill="#244c3c"/>
+
+   <g fill="#e4e9d9">
+    <path d="M65 230 V125 H135 V230Z"/>
+    <path d="M145 230 V85 H220 V230Z"/>
+    <path d="M235 230 V145 H290 V230Z"/>
+    <path d="M310 230 V100 H380 V230Z"/>
+    <path d="M400 230 V135 H470 V230Z"/>
+   </g>
+
+   <g fill="#759b83">
+    <path d="M65 125 L100 100 L135 125Z"/>
+    <path d="M145 85 L183 53 L220 85Z"/>
+   </g>
+
+   <g fill="#739eaa">
+    <rect x="78" y="145" width="14" height="18"/>
+    <rect x="107" y="145" width="14" height="18"/>
+    <rect x="160" y="105" width="15" height="18"/>
+    <rect x="190" y="105" width="15" height="18"/>
+    <rect x="250" y="165" width="20" height="20"/>
+    <rect x="325" y="120" width="15" height="18"/>
+    <rect x="352" y="120" width="15" height="18"/>
+   </g>
+
+   <g stroke="#e4d1a5" stroke-width="3" fill="none">
+    <path d="M525 230 V95 M525 95 L500 70 M525 95 L550 70 M525 95 V58"/>
+    <path d="M35 230 V135 M35 135 L20 120 M35 135 L50 120 M35 135 V105"/>
+   </g>
+
+   <g fill="#8cac82">
+    <circle cx="25" cy="225" r="20"/>
+    <circle cx="50" cy="225" r="23"/>
+    <circle cx="550" cy="225" r="25"/>
+    <circle cx="580" cy="225" r="20"/>
+   </g>
+
+   <path d="M0 270 Q300 245 600 270"
+    stroke="#e5c68b" stroke-width="2" fill="none"/>
+  </svg>
+ </div>
+
+ <p>
+  من الطاقة إلى المياه، ومن المباني إلى الأنظمة الذكية،
+  <br>نكتشف كيف ستعمل مدن الغد.
+ </p>
+
+ <div class="gold-line"></div>
+ <small>اكتشف ملامح الحياة في المستقبل</small>
+
+</section>
+
+
+<!-- الصفحة الثانية: الطاقة الشمسية -->
+
+<section class="page">
+
+ <div class="page-tag">01 — SOLAR TECHNOLOGY</div>
+
+ <h2 class="section-title">
+  الطاقة الشمسية
+  <br>مصدر يضيء مدن المستقبل
+ </h2>
+
+ <p class="intro">
+  تعتمد مدن المستقبل على تحويل أشعة الشمس إلى كهرباء،
+  من خلال تقنيات يمكن دمجها في المباني والبنية التحتية
+  لتوفير الطاقة وتشغيل العديد من الخدمات.
+ </p>
+
+ <div class="visual">
+  <svg viewBox="0 0 520 220">
+   <circle cx="430" cy="55" r="34" fill="#e6bc65"/>
+   <g stroke="#d6a84c" stroke-width="3">
+    <path d="M430 8 V0 M430 105 V120 M383 55 H365 M477 55 H495"/>
+   </g>
+
+   <path d="M30 165 L220 120 L295 165 L105 200Z"
+    fill="#477d80"/>
+   <path d="M30 165 L105 200 V210 L30 175Z"
+    fill="#285b62"/>
+
+   <g stroke="#a9d5cf" stroke-width="2">
+    <path d="M78 153 L151 183 M125 142 L198 172 M172 131 L245 161"/>
+    <path d="M94 150 L62 177 M141 139 L108 168 M188 128 L155 157"/>
+   </g>
+
+   <path d="M295 165 V85 H375 V165Z" fill="#77947e"/>
+   <path d="M295 85 L335 63 L375 85Z" fill="#315c48"/>
+
+   <g fill="#d9e5d7">
+    <rect x="310" y="100" width="15" height="25"/>
+    <rect x="340" y="100" width="15" height="25"/>
+   </g>
+
+   <path d="M0 205 H520" stroke="#71917c" stroke-width="4"/>
+  </svg>
+ </div>
+
+ <h3 style="color:#174b3b">آلية الاستفادة</h3>
+
+ <div class="step">
+  <span class="number">1</span>
+  <p>تستقبل الخلايا الكهروضوئية (PV) أشعة الشمس وتحولها إلى تيار كهربائي مستمر.</p>
+ </div>
+
+ <div class="step">
+  <span class="number">2</span>
+  <p>يحوّل العاكس الكهربائي التيار إلى كهرباء مناسبة لاستخدام المباني والأجهزة.</p>
+ </div>
+
+ <div class="step">
+  <span class="number">3</span>
+  <p>يمكن تخزين الكهرباء الزائدة في البطاريات أو إرسالها إلى الشبكة الكهربائية.</p>
+ </div>
+
+ <div class="cards">
+  <div class="info-card">
+   <h3>تقنية PV</h3>
+   <p>خلايا كهروضوئية تحول ضوء الشمس مباشرة إلى كهرباء.</p>
+  </div>
+
+  <div class="info-card">
+   <h3>تقنية BIPV</h3>
+   <p>دمج الخلايا الشمسية في واجهات المباني والأسقف والنوافذ لتوليد الكهرباء.</p>
+  </div>
+
+  <div class="info-card full">
+   <h3>التطبيقات في مدن المستقبل</h3>
+   <p>
+    تشغيل الإنارة الذكية، وتوفير الكهرباء للمباني،
+    وشحن المركبات الكهربائية، وتشغيل بعض أنظمة التدفئة والتبريد
+    باستخدام الطاقة الشمسية الحرارية.
+   </p>
+  </div>
+ </div>
+
+ <div class="highlight">
+  <strong>الفكرة المستقبلية:</strong>
+  مبانٍ تستفيد من واجهاتها وأسقفها لتوليد جزء من الكهرباء التي تحتاجها.
+ </div>
+
+</section>
+
+
+<!-- الصفحة الثالثة: طاقة الرياح -->
+
+<section class="page">
+
+ <div class="page-tag">02 — WIND TECHNOLOGY</div>
+
+ <h2 class="section-title">
+  طاقة الرياح
+  <br>محرك طبيعي لتوليد الكهرباء
+ </h2>
+
+ <p class="intro">
+  تستفيد مدن المستقبل من حركة الهواء لتوليد الطاقة الكهربائية،
+  سواء من خلال مزارع الرياح أو بعض الأنظمة المصممة للمواقع الحضرية المناسبة.
+ </p>
+
+ <div class="visual">
+  <svg viewBox="0 0 520 230">
+   <path d="M0 185 Q130 155 260 185 T520 175 V230 H0Z"
+    fill="#a9c8b7"/>
+
+   <g stroke="#477c83" stroke-width="3" fill="none">
+    <path d="M15 80 Q75 45 130 80"/>
+    <path d="M25 105 Q85 70 140 105"/>
+    <path d="M365 75 Q425 40 490 75"/>
+    <path d="M375 100 Q435 65 500 100"/>
+   </g>
+
+   <g stroke="#315c48" stroke-width="5" stroke-linecap="round">
+    <path d="M180 180 V65 M180 65 L145 30 M180 65 L215 30 M180 65 V20"/>
+    <path d="M350 180 V85 M350 85 L320 55 M350 85 L380 55 M350 85 V40"/>
+   </g>
+
+   <circle cx="180" cy="65" r="7" fill="#e4c48a"/>
+   <circle cx="350" cy="85" r="7" fill="#e4c48a"/>
+
+   <path d="M0 205 H520" stroke="#71917c" stroke-width="4"/>
+  </svg>
+ </div>
+
+ <h3 style="color:#174b3b">آلية الاستفادة</h3>
+
+ <div class="step">
+  <span class="number">1</span>
+  <p>تدفع الرياح شفرات التوربين وتحول طاقة حركة الهواء إلى حركة دورانية.</p>
+ </div>
+
+ <div class="step">
+  <span class="number">2</span>
+  <p>ينقل محور الدوران الحركة إلى المولد الكهربائي لإنتاج الكهرباء.</p>
+ </div>
+
+ <div class="step">
+  <span class="number">3</span>
+  <p>تُنظم أنظمة التحكم إنتاج الكهرباء وتساعد على ربطه بشبكات المدينة.</p>
+ </div>
+
+ <div class="cards">
+  <div class="info-card">
+   <h3>توربينات VAWT</h3>
+   <p>توربينات ذات محور دوران عمودي، ويمكن تصميم بعض أنواعها لتناسب مواقع حضرية محددة.</p>
+  </div>
+
+  <div class="info-card">
+   <h3>أنظمة التحكم</h3>
+   <p>أجهزة تقيس سرعة الرياح واتجاهها وتراقب أداء التوربين.</p>
+  </div>
+
+  <div class="info-card full">
+   <h3>التطبيقات في مدن المستقبل</h3>
+   <p>
+    إنشاء مزارع رياح برية وبحرية في المواقع المناسبة،
+    ودراسة تركيب توربينات عمودية على بعض المباني
+    للاستفادة من حركة الهواء حولها.
+   </p>
+  </div>
+
+  <div class="info-card full">
+   <h3>التكامل مع شبكات الكهرباء</h3>
+   <p>
+    يمكن تخزين الكهرباء المنتجة أو دمجها مع مصادر أخرى
+    لتغذية الشبكات الذكية خلال أوقات اختلاف إنتاج الطاقة.
+   </p>
+  </div>
+ </div>
+
+ <div class="highlight">
+  <strong>معلومة تقنية:</strong>
+  لا يناسب تركيب توربينات الرياح كل مبنى؛ إذ يجب دراسة سرعة الرياح واضطرابها والضوضاء والسلامة الإنشائية قبل اختيار الموقع.
+ </div>
+
+</section>
+
+
+<!-- الصفحة الرابعة: المياه -->
+
+<section class="page">
+
+ <div class="page-tag">03 — SMART WATER SYSTEMS</div>
+
+ <h2 class="section-title">
+  المياه
+  <br>شريان الحياة والإدارة الذكية
+ </h2>
+
+ <p class="intro">
+  في مدن المستقبل تصبح إدارة المياه أكثر دقة،
+  من خلال أجهزة الاستشعار والعدادات الذكية وأنظمة المعالجة
+  التي تساعد على مراقبة الإمدادات والتحكم بها.
+ </p>
+
+ <div class="visual">
+  <svg viewBox="0 0 520 220">
+   <path d="M0 180 Q120 150 260 180 T520 175 V220 H0Z"
+    fill="#8fb8bd"/>
+
+   <path d="M170 45 H350 V145 H170Z"
+    fill="#dbe8df" stroke="#477c83" stroke-width="4"/>
+
+   <path d="M200 75 H320 M200 95 H320 M200 115 H320"
+    stroke="#477c83" stroke-width="4" stroke-linecap="round"/>
+
+   <circle cx="260" cy="45" r="15" fill="#bd9a60"/>
+
+   <path d="M260 145 V170 H130 V185 M260 170 H390 V185"
+    stroke="#477c83" stroke-width="7" fill="none"/>
+
+   <g fill="#477c83">
+    <circle cx="130" cy="185" r="9"/>
+    <circle cx="390" cy="185" r="9"/>
+   </g>
+
+   <path d="M90 65 Q75 90 90 105 Q105 90 90 65Z" fill="#477c83"/>
+   <path d="M430 65 Q415 90 430 105 Q445 90 430 65Z" fill="#477c83"/>
+  </svg>
+ </div>
+
+ <h3 style="color:#174b3b">آلية الاستفادة</h3>
+
+ <div class="step">
+  <span class="number">1</span>
+  <p>تجمع البيانات من العدادات وأجهزة الاستشعار المنتشرة في شبكة المياه.</p>
+ </div>
+
+ <div class="step">
+  <span class="number">2</span>
+  <p>ترسل الأجهزة القراءات إلى أنظمة المراقبة لتحليل الاستهلاك والتدفق والضغط.</p>
+ </div>
+
+ <div class="step">
+  <span class="number">3</span>
+  <p>تساعد البيانات على اكتشاف التسربات ومتابعة الأعطال واتخاذ الإجراءات المناسبة.</p>
+ </div>
+
+ <div class="cards">
+  <div class="info-card">
+   <h3>إنترنت الأشياء IoT</h3>
+   <p>يربط العدادات والحساسات بالأنظمة الرقمية لتبادل البيانات.</p>
+  </div>
+
+  <div class="info-card">
+   <h3>العدادات الذكية</h3>
+   <p>تسجل استهلاك المياه وتساعد على اكتشاف التغيرات غير المعتادة.</p>
+  </div>
+
+  <div class="info-card">
+   <h3>المياه الرمادية</h3>
+   <p>يمكن معالجة مياه المغاسل والاستحمام وإعادة استخدامها في أغراض مناسبة غير الشرب.</p>
+  </div>
+
+  <div class="info-card">
+   <h3>حصاد الأمطار</h3>
+   <p>جمع مياه الأمطار وتخزينها للاستفادة منها في الاستخدامات الملائمة بعد المعالجة عند الحاجة.</p>
+  </div>
+
+  <div class="info-card full">
+   <h3>التطبيقات في مدن المستقبل</h3>
+   <p>
+    مراقبة شبكات المياه، واكتشاف التسربات،
+    وإدارة خزانات المباني، ومتابعة مياه الأمطار والسيول،
+    وتشغيل أنظمة الري وفق بيانات الطقس ورطوبة التربة.
+   </p>
+  </div>
+ </div>
+
+ <div class="highlight">
+  <strong>الفكرة المستقبلية:</strong>
+  شبكة مياه متصلة تعرف مقدار الاستهلاك وتساعد على اكتشاف الخلل قبل تفاقمه.
+ </div>
+
+</section>
+
+
+<!-- الصفحة الخامسة: التطبيقات الواقعية -->
+
+<section class="page">
+
+ <div class="page-tag">04 — REAL WORLD APPLICATIONS</div>
+
+ <h2 class="section-title">
+  من التقنيات إلى الواقع
+  <br>مدن تطبق حلول المستقبل
+ </h2>
+
+ <p class="intro">
+  بعض التقنيات التي نتصورها في مدن الغد موجودة بالفعل
+  في مشروعات ومدن حول العالم، وتقدم نماذج لتطوير الخدمات الحضرية.
+ </p>
+
+ <div class="case">
+  <div class="case-art">
+   <svg viewBox="0 0 120 110">
+    <circle cx="90" cy="20" r="12" fill="#d6b76f"/>
+    <path d="M5 90 L40 55 L80 90Z" fill="#416c50"/>
+    <path d="M25 85 V45 H75 V85Z" fill="#789c83"/>
+    <path d="M25 45 L50 27 L75 45Z" fill="#315b46"/>
+    <g fill="#a8c6bd">
+     <rect x="34" y="53" width="9" height="13"/>
+     <rect x="54" y="53" width="9" height="13"/>
+    </g>
+   </svg>
+  </div>
+
+  <div>
+   <h3>مدينة مصدر – أبوظبي</h3>
+   <p>
+    تستخدم حلولًا معمارية وتقنيات للطاقة الشمسية،
+    مع تصميم المباني والشوارع للاستفادة من الظل والتهوية.
+   </p>
+   <span class="pill">العمارة والطاقة الشمسية</span>
+  </div>
+ </div>
+
+ <div class="case">
+  <div class="case-art">
+   <svg viewBox="0 0 120 110">
+    <path d="M10 70 Q60 35 110 70" fill="none" stroke="#6ca3a7" stroke-width="9"/>
+    <rect x="20" y="60" width="80" height="30" rx="4" fill="#719b8d"/>
+    <g fill="#e5eee5">
+     <rect x="29" y="67" width="13" height="17"/>
+     <rect x="53" y="67" width="13" height="17"/>
+     <rect x="77" y="67" width="13" height="17"/>
+    </g>
+    <path d="M60 13 V42 M49 27 L60 42 L71 27"
+     stroke="#477c83" stroke-width="4" fill="none"/>
+   </svg>
+  </div>
+
+  <div>
+   <h3>سنغافورة – مشروع NEWater</h3>
+   <p>
+    يعالج المياه المستخدمة باستخدام الترشيح الدقيق
+    والتناضح العكسي والتعقيم بالأشعة فوق البنفسجية
+    لإنتاج مياه عالية الجودة.
+   </p>
+   <span class="pill">تقنيات معالجة المياه</span>
+  </div>
+ </div>
+
+ <div class="case">
+  <div class="case-art">
+   <svg viewBox="0 0 120 110">
+    <rect x="15" y="20" width="90" height="70" rx="7" fill="#315b46"/>
+    <path d="M25 35 H95 M25 50 H95 M25 65 H95"
+     stroke="#c5d9ca" stroke-width="3"/>
+    <circle cx="35" cy="35" r="4" fill="#e4c991"/>
+    <circle cx="65" cy="50" r="4" fill="#e4c991"/>
+    <circle cx="85" cy="65" r="4" fill="#e4c991"/>
+   </svg>
+  </div>
+
+  <div>
+   <h3>الرياض – مراقبة شبكات تصريف السيول</h3>
+   <p>
+    تستخدم أمانة الرياض أجهزة استشعار لمتابعة مستويات المياه
+    والبيانات اللحظية في قنوات تصريف السيول،
+    مما يساعد على رصد المشكلات والتدخل المبكر.
+   </p>
+   <span class="pill">الاستشعار وإنترنت الأشياء</span>
+  </div>
+ </div>
+
+ <div class="highlight">
+  <strong>ماذا نستنتج؟</strong>
+  مدن المستقبل تعتمد على دمج الموارد الطبيعية مع البيانات والتقنيات الذكية لتحسين تشغيل المرافق والخدمات.
+ </div>
+
+</section>
+
+
+<!-- الصفحة السادسة: حياة المستقبل والخاتمة -->
+
+<section class="page">
+
+ <div class="page-tag">05 — LIFE IN FUTURE CITIES</div>
+
+ <h2 class="section-title">
+  كيف ستكون الحياة
+  <br>في مدن المستقبل؟
+ </h2>
+
+ <p class="intro">
+  ستتصل المباني والمرافق ووسائل النقل والأنظمة الخدمية
+  ضمن منظومة رقمية تساعد على إدارة المدينة والاستجابة
+  لاحتياجات السكان بصورة أكثر سرعة ودقة.
+ </p>
+
+ <div class="visual">
+  <svg viewBox="0 0 520 230">
+   <circle cx="420" cy="50" r="30" fill="#e4c68b"/>
+
+   <path d="M0 185 Q140 145 260 180 T520 170 V230 H0Z"
+    fill="#8fae91"/>
+
+   <g fill="#e7ecdf">
+    <path d="M70 185 V95 H145 V185Z"/>
+    <path d="M155 185 V65 H235 V185Z"/>
+    <path d="M260 185 V100 H330 V185Z"/>
+    <path d="M345 185 V120 H420 V185Z"/>
+   </g>
+
+   <g fill="#80a6a0">
+    <rect x="85" y="110" width="15" height="18"/>
+    <rect x="112" y="110" width="15" height="18"/>
+    <rect x="172" y="82" width="15" height="20"/>
+    <rect x="200" y="82" width="15" height="20"/>
+    <rect x="280" y="115" width="16" height="18"/>
+   </g>
+
+   <g stroke="#bd9a60" stroke-width="3" fill="none">
+    <path d="M30 50 Q110 5 180 50"/>
+    <path d="M180 50 Q260 5 340 50"/>
+    <path d="M340 50 Q410 5 490 50"/>
+   </g>
+
+   <g fill="#477c83">
+    <circle cx="180" cy="50" r="5"/>
+    <circle cx="340" cy="50" r="5"/>
+   </g>
+
+   <path d="M0 205 H520" stroke="#315b46" stroke-width="4"/>
+  </svg>
+ </div>
+
+ <div class="cards">
+  <div class="info-card">
+   <h3>المباني الذكية</h3>
+   <p>تضبط الإضاءة والتكييف وفق وجود الأشخاص ودرجة الحرارة.</p>
+  </div>
+
+  <div class="info-card">
+   <h3>النقل الذكي</h3>
+   <p>أنظمة مرور تحلل حركة المركبات وتساعد على تنظيم الطرق.</p>
+  </div>
+
+  <div class="info-card">
+   <h3>شبكات الكهرباء</h3>
+   <p>تراقب العرض والطلب وتدير توزيع الطاقة وتخزينها.</p>
+  </div>
+
+  <div class="info-card">
+   <h3>الخدمات الرقمية</h3>
+   <p>منصات مترابطة تتيح متابعة الخدمات والمرافق والاستجابة للأعطال.</p>
+  </div>
+ </div>
+
+ <div class="quote">
+  «مدينة تفكر بتقنياتها،
+  <br>وتتطور بمواردها،
+  <br>وتصنع حياة الغد».
+ </div>
+
+ <div class="gold-line"></div>
+
+ <h3 style="color:#174b3b">مراجع ومصادر المعلومات</h3>
+
+ <div class="info-card references">
+  <ul>
+   <li>
+    <a href="https://www.energy.gov/cmei/systems/solar-photovoltaic-system-design-basics" target="_blank">
+     وزارة الطاقة الأمريكية – أساسيات أنظمة الطاقة الشمسية
+    </a>
+   </li>
+   <li>
+    <a href="https://iea-pvps.org/key-topics/book-building-integrated-photovoltaics-a-technical-guidebook/" target="_blank">
+     الوكالة الدولية للطاقة – دليل الخلايا الشمسية المدمجة في المباني
+    </a>
+   </li>
+   <li>
+    <a href="https://www.gsma.com/solutions-and-impact/technologies/internet-of-things/" target="_blank">
+     GSMA – إنترنت الأشياء
+    </a>
+   </li>
+   <li>
+    <a href="https://www.spa.gov.sa/N2173493" target="_blank">
+     وكالة الأنباء السعودية – أجهزة الاستشعار في شبكات تصريف السيول بالرياض
+    </a>
+   </li>
+   <li>
+    <a href="https://www.pub.gov.sg/Public/WaterLoop/OurWaterStory/NEWater" target="_blank">
+     هيئة المياه السنغافورية – مشروع NEWater
+    </a>
+   </li>
+  </ul>
+ </div>
+
+ <div class="credits">
+  <strong>عمل الطالبات:</strong><br>
+  ياسمين عبدالله الحصني<br>
+  حلا متعب الحربي<br>
+  رنا حسين المصعبي<br>
+  بيان ياسر<br>
+  رؤى وليد<br>
+  <br>
+  <strong>بإشراف المعلمة:</strong>
+  أ. رسمية الأحمدي
+  <br>
+  <strong>الصف:</strong> 3/2
+ </div>
+
+ <div class="footer">
+  مشروع مدن المستقبل
+  <br>التكنولوجيا تصنع ملامح الحياة القادمة
+ </div>
+
+</section>
+
+</main>
+
+<div class="dots" id="dots"></div>
+
+<div class="controls">
+ <button id="prev" onclick="move(-1)">السابق</button>
+ <span id="counter">1 / 6</span>
+ <button id="next" onclick="move(1)">التالي</button>
+ <button onclick="window.print()">طباعة / PDF</button>
+</div>
+
+<script>
+const pages=document.querySelectorAll('.page');
+const dots=document.getElementById('dots');
+const counter=document.getElementById('counter');
+const prev=document.getElementById('prev');
+const next=document.getElementById('next');
+
+let current=0;
+
+pages.forEach((page,i)=>{
+ const dot=document.createElement('span');
+ dot.className='dot'+(i===0?' active':'');
+ dot.addEventListener('click',()=>showPage(i));
+ dots.appendChild(dot);
+});
+
+function showPage(index){
+ current=Math.max(0,Math.min(index,pages.length-1));
+
+ pages.forEach((page,i)=>{
+  page.classList.toggle('active',i===current);
+ });
+
+ document.querySelectorAll('.dot').forEach((dot,i)=>{
+  dot.classList.toggle('active',i===current);
+ });
+
+ counter.textContent=`${current+1} / ${pages.length}`;
+ prev.disabled=current===0;
+ next.disabled=current===pages.length-1;
+
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function move(direction){
+ showPage(current+direction);
+}
+
+document.addEventListener('keydown',e=>{
+ if(e.key==='ArrowLeft')move(1);
+ if(e.key==='ArrowRight')move(-1);
+});
+
+showPage(0);
+</script>
+
+</body>
+</html>
